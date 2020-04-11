@@ -420,10 +420,6 @@
   bool VisitGuardedVarAttr(GuardedVarAttr *A) {
     return true; 
   }
-  bool TraverseHIPPinnedShadowAttr(HIPPinnedShadowAttr *A);
-  bool VisitHIPPinnedShadowAttr(HIPPinnedShadowAttr *A) {
-    return true; 
-  }
   bool TraverseHotAttr(HotAttr *A);
   bool VisitHotAttr(HotAttr *A) {
     return true; 
@@ -2239,15 +2235,6 @@ bool VISITORCLASS<Derived>::TraverseGuardedVarAttr(GuardedVarAttr *A) {
   if (!getDerived().VisitAttr(A))
     return false;
   if (!getDerived().VisitGuardedVarAttr(A))
-    return false;
-  return true;
-}
-
-template <typename Derived>
-bool VISITORCLASS<Derived>::TraverseHIPPinnedShadowAttr(HIPPinnedShadowAttr *A) {
-  if (!getDerived().VisitAttr(A))
-    return false;
-  if (!getDerived().VisitHIPPinnedShadowAttr(A))
     return false;
   return true;
 }
@@ -4377,8 +4364,6 @@ bool VISITORCLASS<Derived>::TraverseAttr(Attr *A) {
       return getDerived().TraverseGuardedByAttr(cast<GuardedByAttr>(A));
     case attr::GuardedVar:
       return getDerived().TraverseGuardedVarAttr(cast<GuardedVarAttr>(A));
-    case attr::HIPPinnedShadow:
-      return getDerived().TraverseHIPPinnedShadowAttr(cast<HIPPinnedShadowAttr>(A));
     case attr::Hot:
       return getDerived().TraverseHotAttr(cast<HotAttr>(A));
     case attr::IBAction:

@@ -558,6 +558,7 @@ enum AARCH64Intrinsics : unsigned {
     aarch64_sve_splice,                        // llvm.aarch64.sve.splice
     aarch64_sve_sqabs,                         // llvm.aarch64.sve.sqabs
     aarch64_sve_sqadd,                         // llvm.aarch64.sve.sqadd
+    aarch64_sve_sqadd_x,                       // llvm.aarch64.sve.sqadd.x
     aarch64_sve_sqcadd_x,                      // llvm.aarch64.sve.sqcadd.x
     aarch64_sve_sqdecb_n32,                    // llvm.aarch64.sve.sqdecb.n32
     aarch64_sve_sqdecb_n64,                    // llvm.aarch64.sve.sqdecb.n64
@@ -624,6 +625,7 @@ enum AARCH64Intrinsics : unsigned {
     aarch64_sve_sqshrunb,                      // llvm.aarch64.sve.sqshrunb
     aarch64_sve_sqshrunt,                      // llvm.aarch64.sve.sqshrunt
     aarch64_sve_sqsub,                         // llvm.aarch64.sve.sqsub
+    aarch64_sve_sqsub_x,                       // llvm.aarch64.sve.sqsub.x
     aarch64_sve_sqsubr,                        // llvm.aarch64.sve.sqsubr
     aarch64_sve_sqxtnb,                        // llvm.aarch64.sve.sqxtnb
     aarch64_sve_sqxtnt,                        // llvm.aarch64.sve.sqxtnt
@@ -718,6 +720,7 @@ enum AARCH64Intrinsics : unsigned {
     aarch64_sve_umullt,                        // llvm.aarch64.sve.umullt
     aarch64_sve_umullt_lane,                   // llvm.aarch64.sve.umullt.lane
     aarch64_sve_uqadd,                         // llvm.aarch64.sve.uqadd
+    aarch64_sve_uqadd_x,                       // llvm.aarch64.sve.uqadd.x
     aarch64_sve_uqdecb_n32,                    // llvm.aarch64.sve.uqdecb.n32
     aarch64_sve_uqdecb_n64,                    // llvm.aarch64.sve.uqdecb.n64
     aarch64_sve_uqdecd,                        // llvm.aarch64.sve.uqdecd
@@ -753,6 +756,7 @@ enum AARCH64Intrinsics : unsigned {
     aarch64_sve_uqshrnb,                       // llvm.aarch64.sve.uqshrnb
     aarch64_sve_uqshrnt,                       // llvm.aarch64.sve.uqshrnt
     aarch64_sve_uqsub,                         // llvm.aarch64.sve.uqsub
+    aarch64_sve_uqsub_x,                       // llvm.aarch64.sve.uqsub.x
     aarch64_sve_uqsubr,                        // llvm.aarch64.sve.uqsubr
     aarch64_sve_uqxtnb,                        // llvm.aarch64.sve.uqxtnb
     aarch64_sve_uqxtnt,                        // llvm.aarch64.sve.uqxtnt

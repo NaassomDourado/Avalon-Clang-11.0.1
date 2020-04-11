@@ -1,2 +1,2 @@
-#define LLVM_REVISION "f199e722a1be6217def77279485f571457b93c7d"
-#define LLVM_REPOSITORY "git://github.com/llvm/llvm-project"
+#define LLVM_REVISION "04f4bf4189d06c1b4eb03f4f5add37381a4dc677"
+#define LLVM_REPOSITORY "https://github.com/Haseo97/llvm-android"

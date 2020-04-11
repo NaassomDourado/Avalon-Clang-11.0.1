@@ -3478,48 +3478,6 @@ virtual AttrHandling handleDeclAttribute(Sema &S, Decl *D,const ParsedAttr &Attr
 static const ParsedAttrInfoGuardedVar Instance;
 };
 const ParsedAttrInfoGuardedVar ParsedAttrInfoGuardedVar::Instance;
-static constexpr ParsedAttrInfo::Spelling HIPPinnedShadowSpellings[] = {
-  {AttributeCommonInfo::AS_GNU, "hip_pinned_shadow"},
-  {AttributeCommonInfo::AS_Declspec, "__hip_pinned_shadow__"},
-};
-struct ParsedAttrInfoHIPPinnedShadow final : public ParsedAttrInfo {
-  ParsedAttrInfoHIPPinnedShadow() {
-    AttrKind = ParsedAttr::AT_HIPPinnedShadow;
-    NumArgs = 0;
-    OptArgs = 0;
-    HasCustomParsing = 0;
-    IsTargetSpecific = 0;
-    IsType = 0;
-    IsStmt = 0;
-    IsKnownToGCC = 0;
-    IsSupportedByPragmaAttribute = 1;
-    Spellings = HIPPinnedShadowSpellings;
-  }
-virtual bool diagAppertainsToDecl(Sema &S, const ParsedAttr &Attr, const Decl *D) const {
-  if (!isa<VarDecl>(D)) {
-    S.Diag(Attr.getLoc(), diag::warn_attribute_wrong_decl_type_str)
-      << Attr << "variables";
-    return false;
-  }
-  return true;
-}
-
-virtual bool diagLangOpts(Sema &S, const ParsedAttr &Attr) const {
-  auto &LangOpts = S.LangOpts;
-  if (LangOpts.HIP)
-    return true;
-
-  S.Diag(Attr.getLoc(), diag::warn_attribute_ignored) << Attr;
-  return false;
-}
-
-virtual void getPragmaAttributeMatchRules(llvm::SmallVectorImpl<std::pair<attr::SubjectMatchRule, bool>> &MatchRules, const LangOptions &LangOpts) const {
-  MatchRules.push_back(std::make_pair(attr::SubjectMatchRule_variable, /*IsSupported=*/true));
-}
-
-static const ParsedAttrInfoHIPPinnedShadow Instance;
-};
-const ParsedAttrInfoHIPPinnedShadow ParsedAttrInfoHIPPinnedShadow::Instance;
 static constexpr ParsedAttrInfo::Spelling HotSpellings[] = {
   {AttributeCommonInfo::AS_GNU, "hot"},
   {AttributeCommonInfo::AS_CXX11, "gnu::hot"},
@@ -10072,7 +10030,6 @@ static const ParsedAttrInfo *AttrInfoMap[] = {
 &ParsedAttrInfoGNUInline::Instance,
 &ParsedAttrInfoGuardedBy::Instance,
 &ParsedAttrInfoGuardedVar::Instance,
-&ParsedAttrInfoHIPPinnedShadow::Instance,
 &ParsedAttrInfoHot::Instance,
 &ParsedAttrInfoIBAction::Instance,
 &ParsedAttrInfoIBOutlet::Instance,

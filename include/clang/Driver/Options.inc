@@ -888,67 +888,67 @@ OPTION(prefix_1, "ffixed-r19", ffixed_r19, Flag, INVALID, INVALID, nullptr, 0, 0
 OPTION(prefix_1, "ffixed-r9", ffixed_r9, Flag, m_arm_Features_Group, INVALID, nullptr, 0, 0,
        "Reserve the r9 register (ARM only)", nullptr, nullptr)
 OPTION(prefix_1, "ffixed-x10", ffixed_x10, Flag, m_Group, INVALID, nullptr, 0, 0,
-       "Reserve the 10 register (AArch64/RISC-V only)", nullptr, nullptr)
+       "Reserve the x10 register (AArch64/RISC-V only)", nullptr, nullptr)
 OPTION(prefix_1, "ffixed-x11", ffixed_x11, Flag, m_Group, INVALID, nullptr, 0, 0,
-       "Reserve the 11 register (AArch64/RISC-V only)", nullptr, nullptr)
+       "Reserve the x11 register (AArch64/RISC-V only)", nullptr, nullptr)
 OPTION(prefix_1, "ffixed-x12", ffixed_x12, Flag, m_Group, INVALID, nullptr, 0, 0,
-       "Reserve the 12 register (AArch64/RISC-V only)", nullptr, nullptr)
+       "Reserve the x12 register (AArch64/RISC-V only)", nullptr, nullptr)
 OPTION(prefix_1, "ffixed-x13", ffixed_x13, Flag, m_Group, INVALID, nullptr, 0, 0,
-       "Reserve the 13 register (AArch64/RISC-V only)", nullptr, nullptr)
+       "Reserve the x13 register (AArch64/RISC-V only)", nullptr, nullptr)
 OPTION(prefix_1, "ffixed-x14", ffixed_x14, Flag, m_Group, INVALID, nullptr, 0, 0,
-       "Reserve the 14 register (AArch64/RISC-V only)", nullptr, nullptr)
+       "Reserve the x14 register (AArch64/RISC-V only)", nullptr, nullptr)
 OPTION(prefix_1, "ffixed-x15", ffixed_x15, Flag, m_Group, INVALID, nullptr, 0, 0,
-       "Reserve the 15 register (AArch64/RISC-V only)", nullptr, nullptr)
+       "Reserve the x15 register (AArch64/RISC-V only)", nullptr, nullptr)
 OPTION(prefix_1, "ffixed-x16", ffixed_x16, Flag, m_Group, INVALID, nullptr, 0, 0,
-       "Reserve the 16 register (AArch64/RISC-V only)", nullptr, nullptr)
+       "Reserve the x16 register (AArch64/RISC-V only)", nullptr, nullptr)
 OPTION(prefix_1, "ffixed-x17", ffixed_x17, Flag, m_Group, INVALID, nullptr, 0, 0,
-       "Reserve the 17 register (AArch64/RISC-V only)", nullptr, nullptr)
+       "Reserve the x17 register (AArch64/RISC-V only)", nullptr, nullptr)
 OPTION(prefix_1, "ffixed-x18", ffixed_x18, Flag, m_Group, INVALID, nullptr, 0, 0,
-       "Reserve the 18 register (AArch64/RISC-V only)", nullptr, nullptr)
+       "Reserve the x18 register (AArch64/RISC-V only)", nullptr, nullptr)
 OPTION(prefix_1, "ffixed-x19", ffixed_x19, Flag, m_Group, INVALID, nullptr, 0, 0,
-       "Reserve the 19 register (AArch64/RISC-V only)", nullptr, nullptr)
+       "Reserve the x19 register (AArch64/RISC-V only)", nullptr, nullptr)
 OPTION(prefix_1, "ffixed-x1", ffixed_x1, Flag, m_Group, INVALID, nullptr, 0, 0,
-       "Reserve the 1 register (AArch64/RISC-V only)", nullptr, nullptr)
+       "Reserve the x1 register (AArch64/RISC-V only)", nullptr, nullptr)
 OPTION(prefix_1, "ffixed-x20", ffixed_x20, Flag, m_Group, INVALID, nullptr, 0, 0,
-       "Reserve the 20 register (AArch64/RISC-V only)", nullptr, nullptr)
+       "Reserve the x20 register (AArch64/RISC-V only)", nullptr, nullptr)
 OPTION(prefix_1, "ffixed-x21", ffixed_x21, Flag, m_Group, INVALID, nullptr, 0, 0,
-       "Reserve the 21 register (AArch64/RISC-V only)", nullptr, nullptr)
+       "Reserve the x21 register (AArch64/RISC-V only)", nullptr, nullptr)
 OPTION(prefix_1, "ffixed-x22", ffixed_x22, Flag, m_Group, INVALID, nullptr, 0, 0,
-       "Reserve the 22 register (AArch64/RISC-V only)", nullptr, nullptr)
+       "Reserve the x22 register (AArch64/RISC-V only)", nullptr, nullptr)
 OPTION(prefix_1, "ffixed-x23", ffixed_x23, Flag, m_Group, INVALID, nullptr, 0, 0,
-       "Reserve the 23 register (AArch64/RISC-V only)", nullptr, nullptr)
+       "Reserve the x23 register (AArch64/RISC-V only)", nullptr, nullptr)
 OPTION(prefix_1, "ffixed-x24", ffixed_x24, Flag, m_Group, INVALID, nullptr, 0, 0,
-       "Reserve the 24 register (AArch64/RISC-V only)", nullptr, nullptr)
+       "Reserve the x24 register (AArch64/RISC-V only)", nullptr, nullptr)
 OPTION(prefix_1, "ffixed-x25", ffixed_x25, Flag, m_Group, INVALID, nullptr, 0, 0,
-       "Reserve the 25 register (AArch64/RISC-V only)", nullptr, nullptr)
+       "Reserve the x25 register (AArch64/RISC-V only)", nullptr, nullptr)
 OPTION(prefix_1, "ffixed-x26", ffixed_x26, Flag, m_Group, INVALID, nullptr, 0, 0,
-       "Reserve the 26 register (AArch64/RISC-V only)", nullptr, nullptr)
+       "Reserve the x26 register (AArch64/RISC-V only)", nullptr, nullptr)
 OPTION(prefix_1, "ffixed-x27", ffixed_x27, Flag, m_Group, INVALID, nullptr, 0, 0,
-       "Reserve the 27 register (AArch64/RISC-V only)", nullptr, nullptr)
+       "Reserve the x27 register (AArch64/RISC-V only)", nullptr, nullptr)
 OPTION(prefix_1, "ffixed-x28", ffixed_x28, Flag, m_Group, INVALID, nullptr, 0, 0,
-       "Reserve the 28 register (AArch64/RISC-V only)", nullptr, nullptr)
+       "Reserve the x28 register (AArch64/RISC-V only)", nullptr, nullptr)
 OPTION(prefix_1, "ffixed-x29", ffixed_x29, Flag, m_Group, INVALID, nullptr, 0, 0,
-       "Reserve the 29 register (AArch64/RISC-V only)", nullptr, nullptr)
+       "Reserve the x29 register (AArch64/RISC-V only)", nullptr, nullptr)
 OPTION(prefix_1, "ffixed-x2", ffixed_x2, Flag, m_Group, INVALID, nullptr, 0, 0,
-       "Reserve the 2 register (AArch64/RISC-V only)", nullptr, nullptr)
+       "Reserve the x2 register (AArch64/RISC-V only)", nullptr, nullptr)
 OPTION(prefix_1, "ffixed-x30", ffixed_x30, Flag, m_Group, INVALID, nullptr, 0, 0,
-       "Reserve the 30 register (AArch64/RISC-V only)", nullptr, nullptr)
+       "Reserve the x30 register (AArch64/RISC-V only)", nullptr, nullptr)
 OPTION(prefix_1, "ffixed-x31", ffixed_x31, Flag, m_Group, INVALID, nullptr, 0, 0,
-       "Reserve the 31 register (AArch64/RISC-V only)", nullptr, nullptr)
+       "Reserve the x31 register (AArch64/RISC-V only)", nullptr, nullptr)
 OPTION(prefix_1, "ffixed-x3", ffixed_x3, Flag, m_Group, INVALID, nullptr, 0, 0,
-       "Reserve the 3 register (AArch64/RISC-V only)", nullptr, nullptr)
+       "Reserve the x3 register (AArch64/RISC-V only)", nullptr, nullptr)
 OPTION(prefix_1, "ffixed-x4", ffixed_x4, Flag, m_Group, INVALID, nullptr, 0, 0,
-       "Reserve the 4 register (AArch64/RISC-V only)", nullptr, nullptr)
+       "Reserve the x4 register (AArch64/RISC-V only)", nullptr, nullptr)
 OPTION(prefix_1, "ffixed-x5", ffixed_x5, Flag, m_Group, INVALID, nullptr, 0, 0,
-       "Reserve the 5 register (AArch64/RISC-V only)", nullptr, nullptr)
+       "Reserve the x5 register (AArch64/RISC-V only)", nullptr, nullptr)
 OPTION(prefix_1, "ffixed-x6", ffixed_x6, Flag, m_Group, INVALID, nullptr, 0, 0,
-       "Reserve the 6 register (AArch64/RISC-V only)", nullptr, nullptr)
+       "Reserve the x6 register (AArch64/RISC-V only)", nullptr, nullptr)
 OPTION(prefix_1, "ffixed-x7", ffixed_x7, Flag, m_Group, INVALID, nullptr, 0, 0,
-       "Reserve the 7 register (AArch64/RISC-V only)", nullptr, nullptr)
+       "Reserve the x7 register (AArch64/RISC-V only)", nullptr, nullptr)
 OPTION(prefix_1, "ffixed-x8", ffixed_x8, Flag, m_Group, INVALID, nullptr, 0, 0,
-       "Reserve the 8 register (AArch64/RISC-V only)", nullptr, nullptr)
+       "Reserve the x8 register (AArch64/RISC-V only)", nullptr, nullptr)
 OPTION(prefix_1, "ffixed-x9", ffixed_x9, Flag, m_Group, INVALID, nullptr, 0, 0,
-       "Reserve the 9 register (AArch64/RISC-V only)", nullptr, nullptr)
+       "Reserve the x9 register (AArch64/RISC-V only)", nullptr, nullptr)
 OPTION(prefix_1, "ffloat-store", float_store_f, Flag, clang_ignored_gcc_optimization_f_Group, INVALID, nullptr, Ignored, 0, nullptr, nullptr, nullptr)
 OPTION(prefix_1, "ffor-scope", ffor_scope, Flag, f_Group, INVALID, nullptr, 0, 0, nullptr, nullptr, nullptr)
 OPTION(prefix_1, "fforbid-guard-variables", fforbid_guard_variables, Flag, INVALID, INVALID, nullptr, CC1Option | NoDriverOption, 0,
@@ -1516,7 +1516,7 @@ OPTION(prefix_1, "fno-sanitize-cfi-canonical-jump-tables", fno_sanitize_cfi_cano
 OPTION(prefix_1, "fno-sanitize-cfi-cross-dso", fno_sanitize_cfi_cross_dso, Flag, f_clang_Group, INVALID, nullptr, CC1Option | CoreOption, 0,
        "Disable control flow integrity (CFI) checks for cross-DSO calls.", nullptr, nullptr)
 OPTION(prefix_1, "fno-sanitize-coverage=", fno_sanitize_coverage, CommaJoined, f_clang_Group, INVALID, nullptr, CC1Option | CoreOption, 0,
-       "Disable specified features of coverage instrumentation for Sanitizers", nullptr, "func,bb,edge,indirect-calls,trace-bb,trace-cmp,trace-div,trace-gep,8bit-counters,trace-pc,trace-pc-guard,no-prune,inline-8bit-counters")
+       "Disable specified features of coverage instrumentation for Sanitizers", nullptr, "func,bb,edge,indirect-calls,trace-bb,trace-cmp,trace-div,trace-gep,8bit-counters,trace-pc,trace-pc-guard,no-prune,inline-8bit-counters,inline-bool-flag")
 OPTION(prefix_1, "fno-sanitize-link-c++-runtime", fno_sanitize_link_cxx_runtime, Flag, f_clang_Group, INVALID, nullptr, CC1Option | CoreOption, 0, nullptr, nullptr, nullptr)
 OPTION(prefix_1, "fno-sanitize-link-runtime", fno_sanitize_link_runtime, Flag, f_clang_Group, INVALID, nullptr, CC1Option | CoreOption, 0, nullptr, nullptr, nullptr)
 OPTION(prefix_1, "fno-sanitize-memory-track-origins", fno_sanitize_memory_track_origins, Flag, f_clang_Group, INVALID, nullptr, CC1Option | CoreOption, 0,
@@ -1884,10 +1884,14 @@ OPTION(prefix_1, "fsanitize-cfi-icall-generalize-pointers", fsanitize_cfi_icall_
        "Generalize pointers in CFI indirect call type signature checks", nullptr, nullptr)
 OPTION(prefix_1, "fsanitize-coverage-8bit-counters", fsanitize_coverage_8bit_counters, Flag, INVALID, INVALID, nullptr, CC1Option | NoDriverOption, 0,
        "Enable frequency counters in sanitizer coverage", nullptr, nullptr)
+OPTION(prefix_1, "fsanitize-coverage-blacklist=", fsanitize_coverage_blacklist, Joined, f_clang_Group, INVALID, nullptr, CC1Option | CoreOption, 0,
+       "Disable sanitizer coverage instrumentation for modules and functions that match the provided special case list, even the whitelisted ones", nullptr, nullptr)
 OPTION(prefix_1, "fsanitize-coverage-indirect-calls", fsanitize_coverage_indirect_calls, Flag, INVALID, INVALID, nullptr, CC1Option | NoDriverOption, 0,
        "Enable sanitizer coverage for indirect calls", nullptr, nullptr)
 OPTION(prefix_1, "fsanitize-coverage-inline-8bit-counters", fsanitize_coverage_inline_8bit_counters, Flag, INVALID, INVALID, nullptr, CC1Option | NoDriverOption, 0,
        "Enable inline 8-bit counters in sanitizer coverage", nullptr, nullptr)
+OPTION(prefix_1, "fsanitize-coverage-inline-bool-flag", fsanitize_coverage_inline_bool_flag, Flag, INVALID, INVALID, nullptr, CC1Option | NoDriverOption, 0,
+       "Enable inline bool flag in sanitizer coverage", nullptr, nullptr)
 OPTION(prefix_1, "fsanitize-coverage-no-prune", fsanitize_coverage_no_prune, Flag, INVALID, INVALID, nullptr, CC1Option | NoDriverOption, 0,
        "Disable coverage pruning (i.e. instrument all blocks/edges)", nullptr, nullptr)
 OPTION(prefix_1, "fsanitize-coverage-pc-table", fsanitize_coverage_pc_table, Flag, INVALID, INVALID, nullptr, CC1Option | NoDriverOption, 0,
@@ -1908,6 +1912,8 @@ OPTION(prefix_1, "fsanitize-coverage-trace-pc", fsanitize_coverage_trace_pc, Fla
        "Enable PC tracing in sanitizer coverage", nullptr, nullptr)
 OPTION(prefix_1, "fsanitize-coverage-type=", fsanitize_coverage_type, Joined, INVALID, INVALID, nullptr, CC1Option | NoDriverOption, 0,
        "Sanitizer coverage type", nullptr, nullptr)
+OPTION(prefix_1, "fsanitize-coverage-whitelist=", fsanitize_coverage_whitelist, Joined, f_clang_Group, INVALID, nullptr, CC1Option | CoreOption, 0,
+       "Restrict sanitizer coverage instrumentation exclusively to modules and functions that match the provided special case list, except the blacklisted ones", nullptr, nullptr)
 OPTION(prefix_1, "fsanitize-coverage=", fsanitize_coverage, CommaJoined, f_clang_Group, INVALID, nullptr, CC1Option | CoreOption, 0,
        "Specify the type of coverage instrumentation for Sanitizers", nullptr, nullptr)
 OPTION(prefix_1, "fsanitize-hwaddress-abi=", fsanitize_hwaddress_abi_EQ, Joined, f_clang_Group, INVALID, nullptr, CC1Option | CoreOption, 0,
@@ -2435,7 +2441,6 @@ OPTION(prefix_1, "main-file-name", main_file_name, Separate, INVALID, INVALID, n
        "Main file name to use for debug info and source if missing", nullptr, nullptr)
 OPTION(prefix_1, "malign-branch-boundary=", malign_branch_boundary_EQ, Joined, m_Group, INVALID, nullptr, DriverOption, 0,
        "Specify the boundary's size to align branches", nullptr, nullptr)
-OPTION(prefix_1, "malign-branch-prefix-size=", malign_branch_prefix_size_EQ, Joined, m_Group, INVALID, nullptr, 0, 0, nullptr, nullptr, nullptr)
 OPTION(prefix_1, "malign-branch=", malign_branch_EQ, CommaJoined, m_Group, INVALID, nullptr, DriverOption, 0,
        "Specify types of branches to align", nullptr, nullptr)
 OPTION(prefix_1, "malign-double", malign_double, Flag, m_Group, INVALID, nullptr, CC1Option, 0,
@@ -2537,6 +2542,8 @@ OPTION(prefix_1, "meabi", meabi, Separate, m_Group, INVALID, nullptr, CC1Option,
        "Set EABI type, e.g. 4, 5 or gnu (default depends on triple)", nullptr, "default,4,5,gnu")
 OPTION(prefix_1, "membedded-data", membedded_data, Flag, m_mips_Features_Group, INVALID, nullptr, 0, 0,
        "Place constants in the .rodata section instead of the .sdata section even if they meet the -G <size> threshold (MIPS)", nullptr, nullptr)
+OPTION(prefix_1, "menable-experimental-extensions", menable_experimental_extensions, Flag, m_Group, INVALID, nullptr, 0, 0,
+       "Enable use of experimental RISC-V extensions.", nullptr, nullptr)
 OPTION(prefix_1, "menable-no-infs", menable_no_infinities, Flag, INVALID, INVALID, nullptr, CC1Option | NoDriverOption, 0,
        "Allow optimization to assume there are no infinities.", nullptr, nullptr)
 OPTION(prefix_1, "menable-no-nans", menable_no_nans, Flag, INVALID, INVALID, nullptr, CC1Option | NoDriverOption, 0,
@@ -2911,6 +2918,7 @@ OPTION(prefix_1, "mno-tbm", mno_tbm, Flag, m_x86_Features_Group, INVALID, nullpt
 OPTION(prefix_1, "mno-thumb", mno_thumb, Flag, m_arm_Features_Group, INVALID, nullptr, 0, 0, nullptr, nullptr, nullptr)
 OPTION(prefix_1, "mno-tls-direct-seg-refs", mno_tls_direct_seg_refs, Flag, m_Group, INVALID, nullptr, CC1Option, 0,
        "Disable direct TLS access through segment registers", nullptr, nullptr)
+OPTION(prefix_1, "mno-tsxldtrk", mno_tsxldtrk, Flag, m_x86_Features_Group, INVALID, nullptr, CoreOption, 0, nullptr, nullptr, nullptr)
 OPTION(prefix_1, "mno-unaligned-access", mno_unaligned_access, Flag, m_arm_Features_Group, INVALID, nullptr, 0, 0,
        "Force all memory accesses to be aligned (AArch32/AArch64 only)", nullptr, nullptr)
 OPTION(prefix_1, "mno-unimplemented-simd128", mno_unimplemented_simd128, Flag, m_wasm_Features_Group, INVALID, nullptr, 0, 0, nullptr, nullptr, nullptr)
@@ -2965,6 +2973,8 @@ OPTION(prefix_1, "mpacked-stack", mpacked_stack, Flag, m_Group, INVALID, nullptr
        "Use packed stack layout (SystemZ only).", nullptr, nullptr)
 OPTION(prefix_1, "mpackets", mpackets, Flag, m_hexagon_Features_Group, INVALID, nullptr, CC1Option, 0,
        "Enable generation of instruction packets", nullptr, nullptr)
+OPTION(prefix_1, "mpad-max-prefix-size=", mpad_max_prefix_size_EQ, Joined, m_Group, INVALID, nullptr, DriverOption, 0,
+       "Specify maximum number of prefixes to use for padding", nullptr, nullptr)
 OPTION(prefix_1, "mpascal-strings", mpascal_strings, Flag, INVALID, fpascal_strings, nullptr, 0, 0, nullptr, nullptr, nullptr)
 OPTION(prefix_1, "mpclmul", mpclmul, Flag, m_x86_Features_Group, INVALID, nullptr, CoreOption, 0, nullptr, nullptr, nullptr)
 OPTION(prefix_1, "mpconfig", mpconfig, Flag, m_x86_Features_Group, INVALID, nullptr, CoreOption, 0, nullptr, nullptr, nullptr)
@@ -3083,6 +3093,7 @@ OPTION(prefix_1, "mtp=", mtp_mode_EQ, Joined, m_arm_Features_Group, INVALID, nul
        "Thread pointer access method (AArch32/AArch64 only)", nullptr, "soft,cp15,el0,el1,el2,el3")
 OPTION(prefix_1, "mtp", mtp, Separate, INVALID, INVALID, nullptr, CC1Option | NoDriverOption, 0,
        "Mode for reading thread pointer", nullptr, nullptr)
+OPTION(prefix_1, "mtsxldtrk", mtsxldtrk, Flag, m_x86_Features_Group, INVALID, nullptr, CoreOption, 0, nullptr, nullptr, nullptr)
 OPTION(prefix_1, "mtune=?", mtune_EQ_QUESTION, Flag, INVALID, print_supported_cpus, nullptr, 0, 0, nullptr, nullptr, nullptr)
 OPTION(prefix_1, "mtune=", mtune_EQ, Joined, m_Group, INVALID, nullptr, 0, 0, nullptr, nullptr, nullptr)
 OPTION(prefix_1, "mtvos-simulator-version-min=", mtvos_simulator_version_min_EQ, Joined, INVALID, INVALID, nullptr, 0, 0, nullptr, nullptr, nullptr)
@@ -3436,6 +3447,8 @@ OPTION(prefix_1, "rewrite-objc", rewrite_objc, Flag, Action_Group, INVALID, null
        "Rewrite Objective-C source to C++", nullptr, nullptr)
 OPTION(prefix_1, "rewrite-test", rewrite_test, Flag, Action_Group, INVALID, nullptr, CC1Option | NoDriverOption, 0,
        "Rewriter playground", nullptr, nullptr)
+OPTION(prefix_3, "rocm-path=", rocm_path_EQ, Joined, i_Group, INVALID, nullptr, 0, 0,
+       "ROCm installation path", nullptr, nullptr)
 OPTION(prefix_1, "Rpass-analysis=", Rpass_analysis_EQ, Joined, R_value_Group, INVALID, nullptr, CC1Option, 0,
        "Report transformation analysis from optimization passes whose name matches the given POSIX regular expression", nullptr, nullptr)
 OPTION(prefix_1, "Rpass-missed=", Rpass_missed_EQ, Joined, R_value_Group, INVALID, nullptr, CC1Option, 0,

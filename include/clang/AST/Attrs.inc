@@ -3747,34 +3747,6 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::GuardedVar; }
 };
 
-class HIPPinnedShadowAttr : public InheritableAttr {
-public:
-  enum Spelling {
-    GNU_hip_pinned_shadow = 0,
-    Declspec_hip_pinned_shadow = 1,
-  SpellingNotCalculated = 15
-
-  };
-
-  // Factory methods
-  static HIPPinnedShadowAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo = {SourceRange{}});
-  static HIPPinnedShadowAttr *Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo = {SourceRange{}});
-  static HIPPinnedShadowAttr *CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax);
-  static HIPPinnedShadowAttr *Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax);
-
-  // Constructors
-  HIPPinnedShadowAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-             );
-
-  HIPPinnedShadowAttr *clone(ASTContext &C) const;
-  void printPretty(raw_ostream &OS,
-                   const PrintingPolicy &Policy) const;
-  const char *getSpelling() const;
-
-
-  static bool classof(const Attr *A) { return A->getKind() == attr::HIPPinnedShadow; }
-};
-
 class HotAttr : public InheritableAttr {
 public:
   enum Spelling {
@@ -5828,29 +5800,33 @@ public:
 };
 
 class OMPCaptureKindAttr : public Attr {
-unsigned captureKind;
+unsigned captureKindVal;
 
 public:
   // Factory methods
-  static OMPCaptureKindAttr *CreateImplicit(ASTContext &Ctx, unsigned CaptureKind, const AttributeCommonInfo &CommonInfo = {SourceRange{}});
-  static OMPCaptureKindAttr *Create(ASTContext &Ctx, unsigned CaptureKind, const AttributeCommonInfo &CommonInfo = {SourceRange{}});
-  static OMPCaptureKindAttr *CreateImplicit(ASTContext &Ctx, unsigned CaptureKind, SourceRange Range, AttributeCommonInfo::Syntax Syntax);
-  static OMPCaptureKindAttr *Create(ASTContext &Ctx, unsigned CaptureKind, SourceRange Range, AttributeCommonInfo::Syntax Syntax);
+  static OMPCaptureKindAttr *CreateImplicit(ASTContext &Ctx, unsigned CaptureKindVal, const AttributeCommonInfo &CommonInfo = {SourceRange{}});
+  static OMPCaptureKindAttr *Create(ASTContext &Ctx, unsigned CaptureKindVal, const AttributeCommonInfo &CommonInfo = {SourceRange{}});
+  static OMPCaptureKindAttr *CreateImplicit(ASTContext &Ctx, unsigned CaptureKindVal, SourceRange Range, AttributeCommonInfo::Syntax Syntax);
+  static OMPCaptureKindAttr *Create(ASTContext &Ctx, unsigned CaptureKindVal, SourceRange Range, AttributeCommonInfo::Syntax Syntax);
 
   // Constructors
   OMPCaptureKindAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , unsigned CaptureKind
+              , unsigned CaptureKindVal
              );
 
   OMPCaptureKindAttr *clone(ASTContext &C) const;
   void printPretty(raw_ostream &OS,
                    const PrintingPolicy &Policy) const;
   const char *getSpelling() const;
-  unsigned getCaptureKind() const {
-    return captureKind;
+  unsigned getCaptureKindVal() const {
+    return captureKindVal;
   }
 
 
+    llvm::omp::Clause getCaptureKind() const {
+      return static_cast<llvm::omp::Clause>(getCaptureKindVal());
+    }
+  
 
   static bool classof(const Attr *A) { return A->getKind() == attr::OMPCaptureKind; }
 };

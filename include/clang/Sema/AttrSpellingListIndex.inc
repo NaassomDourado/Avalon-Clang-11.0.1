@@ -760,13 +760,6 @@
         return 1;
     break;
   }
-  case AT_HIPPinnedShadow: {
-    if (Name == "hip_pinned_shadow" && getSyntax() == AttributeCommonInfo::AS_GNU && Scope == "")
-        return 0;
-    if (Name == "__hip_pinned_shadow__" && getSyntax() == AttributeCommonInfo::AS_Declspec && Scope == "")
-        return 1;
-    break;
-  }
   case AT_Hot: {
     if (Name == "hot" && getSyntax() == AttributeCommonInfo::AS_GNU && Scope == "")
         return 0;

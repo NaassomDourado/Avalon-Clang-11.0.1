@@ -8525,76 +8525,6 @@ const char *GuardedVarAttr::getSpelling() const {
 }
 
 
-// HIPPinnedShadowAttr implementation
-
-HIPPinnedShadowAttr *HIPPinnedShadowAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
-  auto *A = new (Ctx) HIPPinnedShadowAttr(Ctx, CommonInfo);
-  A->setImplicit(true);
-  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
-    A->setAttributeSpellingListIndex(0);
-  return A;
-}
-
-HIPPinnedShadowAttr *HIPPinnedShadowAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
-  auto *A = new (Ctx) HIPPinnedShadowAttr(Ctx, CommonInfo);
-  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
-    A->setAttributeSpellingListIndex(0);
-  return A;
-}
-
-HIPPinnedShadowAttr *HIPPinnedShadowAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
-  return CreateImplicit(Ctx, I);
-}
-
-HIPPinnedShadowAttr *HIPPinnedShadowAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
-  return Create(Ctx, I);
-}
-
-HIPPinnedShadowAttr::HIPPinnedShadowAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-             )
-  : InheritableAttr(Ctx, CommonInfo, attr::HIPPinnedShadow, false, false)
-  {
-}
-
-HIPPinnedShadowAttr *HIPPinnedShadowAttr::clone(ASTContext &C) const {
-  auto *A = new (C) HIPPinnedShadowAttr(C, *this);
-  A->Inherited = Inherited;
-  A->IsPackExpansion = IsPackExpansion;
-  A->setImplicit(Implicit);
-  return A;
-}
-
-void HIPPinnedShadowAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
-  switch (getAttributeSpellingListIndex()) {
-  default:
-    llvm_unreachable("Unknown attribute spelling!");
-    break;
-  case 0 : {
-    OS << " __attribute__((hip_pinned_shadow))";
-    break;
-  }
-  case 1 : {
-    OS << " __declspec(__hip_pinned_shadow__)";
-    break;
-  }
-}
-}
-
-const char *HIPPinnedShadowAttr::getSpelling() const {
-  switch (getAttributeSpellingListIndex()) {
-  default:
-    llvm_unreachable("Unknown attribute spelling!");
-    return "(No spelling)";
-  case 0:
-    return "hip_pinned_shadow";
-  case 1:
-    return "__hip_pinned_shadow__";
-  }
-}
-
-
 // HotAttr implementation
 
 HotAttr *HotAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
@@ -13560,43 +13490,43 @@ const char *OMPAllocateDeclAttr::getSpelling() const {
 
 // OMPCaptureKindAttr implementation
 
-OMPCaptureKindAttr *OMPCaptureKindAttr::CreateImplicit(ASTContext &Ctx, unsigned CaptureKind, const AttributeCommonInfo &CommonInfo) {
-  auto *A = new (Ctx) OMPCaptureKindAttr(Ctx, CommonInfo, CaptureKind);
+OMPCaptureKindAttr *OMPCaptureKindAttr::CreateImplicit(ASTContext &Ctx, unsigned CaptureKindVal, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) OMPCaptureKindAttr(Ctx, CommonInfo, CaptureKindVal);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-OMPCaptureKindAttr *OMPCaptureKindAttr::Create(ASTContext &Ctx, unsigned CaptureKind, const AttributeCommonInfo &CommonInfo) {
-  auto *A = new (Ctx) OMPCaptureKindAttr(Ctx, CommonInfo, CaptureKind);
+OMPCaptureKindAttr *OMPCaptureKindAttr::Create(ASTContext &Ctx, unsigned CaptureKindVal, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) OMPCaptureKindAttr(Ctx, CommonInfo, CaptureKindVal);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-OMPCaptureKindAttr *OMPCaptureKindAttr::CreateImplicit(ASTContext &Ctx, unsigned CaptureKind, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
+OMPCaptureKindAttr *OMPCaptureKindAttr::CreateImplicit(ASTContext &Ctx, unsigned CaptureKindVal, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
-  return CreateImplicit(Ctx, CaptureKind, I);
+  return CreateImplicit(Ctx, CaptureKindVal, I);
 }
 
-OMPCaptureKindAttr *OMPCaptureKindAttr::Create(ASTContext &Ctx, unsigned CaptureKind, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
+OMPCaptureKindAttr *OMPCaptureKindAttr::Create(ASTContext &Ctx, unsigned CaptureKindVal, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
-  return Create(Ctx, CaptureKind, I);
+  return Create(Ctx, CaptureKindVal, I);
 }
 
 OMPCaptureKindAttr::OMPCaptureKindAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , unsigned CaptureKind
+              , unsigned CaptureKindVal
              )
   : Attr(Ctx, CommonInfo, attr::OMPCaptureKind, false)
-              , captureKind(CaptureKind)
+              , captureKindVal(CaptureKindVal)
   {
 }
 
 
 
 OMPCaptureKindAttr *OMPCaptureKindAttr::clone(ASTContext &C) const {
-  auto *A = new (C) OMPCaptureKindAttr(C, *this, captureKind);
+  auto *A = new (C) OMPCaptureKindAttr(C, *this, captureKindVal);
   A->Inherited = Inherited;
   A->IsPackExpansion = IsPackExpansion;
   A->setImplicit(Implicit);
@@ -24897,8 +24827,6 @@ const char *Attr::getSpelling() const {
     return cast<GuardedByAttr>(this)->getSpelling();
   case attr::GuardedVar:
     return cast<GuardedVarAttr>(this)->getSpelling();
-  case attr::HIPPinnedShadow:
-    return cast<HIPPinnedShadowAttr>(this)->getSpelling();
   case attr::Hot:
     return cast<HotAttr>(this)->getSpelling();
   case attr::IBAction:
@@ -25511,8 +25439,6 @@ Attr *Attr::clone(ASTContext &C) const {
     return cast<GuardedByAttr>(this)->clone(C);
   case attr::GuardedVar:
     return cast<GuardedVarAttr>(this)->clone(C);
-  case attr::HIPPinnedShadow:
-    return cast<HIPPinnedShadowAttr>(this)->clone(C);
   case attr::Hot:
     return cast<HotAttr>(this)->clone(C);
   case attr::IBAction:
@@ -26125,8 +26051,6 @@ void Attr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
     return cast<GuardedByAttr>(this)->printPretty(OS, Policy);
   case attr::GuardedVar:
     return cast<GuardedVarAttr>(this)->printPretty(OS, Policy);
-  case attr::HIPPinnedShadow:
-    return cast<HIPPinnedShadowAttr>(this)->printPretty(OS, Policy);
   case attr::Hot:
     return cast<HotAttr>(this)->printPretty(OS, Policy);
   case attr::IBAction:
