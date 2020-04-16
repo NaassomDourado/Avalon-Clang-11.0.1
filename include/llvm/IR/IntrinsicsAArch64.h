@@ -466,22 +466,22 @@ enum AARCH64Intrinsics : unsigned {
     aarch64_sve_pmullt_pair,                   // llvm.aarch64.sve.pmullt.pair
     aarch64_sve_pnext,                         // llvm.aarch64.sve.pnext
     aarch64_sve_prf,                           // llvm.aarch64.sve.prf
-    aarch64_sve_prfb_gather,                   // llvm.aarch64.sve.prfb.gather
-    aarch64_sve_prfb_gather_scaled,            // llvm.aarch64.sve.prfb.gather.scaled
-    aarch64_sve_prfb_gather_scaled_sxtw,       // llvm.aarch64.sve.prfb.gather.scaled.sxtw
-    aarch64_sve_prfb_gather_scaled_uxtw,       // llvm.aarch64.sve.prfb.gather.scaled.uxtw
-    aarch64_sve_prfd_gather,                   // llvm.aarch64.sve.prfd.gather
-    aarch64_sve_prfd_gather_scaled,            // llvm.aarch64.sve.prfd.gather.scaled
-    aarch64_sve_prfd_gather_scaled_sxtw,       // llvm.aarch64.sve.prfd.gather.scaled.sxtw
-    aarch64_sve_prfd_gather_scaled_uxtw,       // llvm.aarch64.sve.prfd.gather.scaled.uxtw
-    aarch64_sve_prfh_gather,                   // llvm.aarch64.sve.prfh.gather
-    aarch64_sve_prfh_gather_scaled,            // llvm.aarch64.sve.prfh.gather.scaled
-    aarch64_sve_prfh_gather_scaled_sxtw,       // llvm.aarch64.sve.prfh.gather.scaled.sxtw
-    aarch64_sve_prfh_gather_scaled_uxtw,       // llvm.aarch64.sve.prfh.gather.scaled.uxtw
-    aarch64_sve_prfw_gather,                   // llvm.aarch64.sve.prfw.gather
-    aarch64_sve_prfw_gather_scaled,            // llvm.aarch64.sve.prfw.gather.scaled
-    aarch64_sve_prfw_gather_scaled_sxtw,       // llvm.aarch64.sve.prfw.gather.scaled.sxtw
-    aarch64_sve_prfw_gather_scaled_uxtw,       // llvm.aarch64.sve.prfw.gather.scaled.uxtw
+    aarch64_sve_prfb_gather_index,             // llvm.aarch64.sve.prfb.gather.index
+    aarch64_sve_prfb_gather_scalar_offset,     // llvm.aarch64.sve.prfb.gather.scalar.offset
+    aarch64_sve_prfb_gather_sxtw_index,        // llvm.aarch64.sve.prfb.gather.sxtw.index
+    aarch64_sve_prfb_gather_uxtw_index,        // llvm.aarch64.sve.prfb.gather.uxtw.index
+    aarch64_sve_prfd_gather_index,             // llvm.aarch64.sve.prfd.gather.index
+    aarch64_sve_prfd_gather_scalar_offset,     // llvm.aarch64.sve.prfd.gather.scalar.offset
+    aarch64_sve_prfd_gather_sxtw_index,        // llvm.aarch64.sve.prfd.gather.sxtw.index
+    aarch64_sve_prfd_gather_uxtw_index,        // llvm.aarch64.sve.prfd.gather.uxtw.index
+    aarch64_sve_prfh_gather_index,             // llvm.aarch64.sve.prfh.gather.index
+    aarch64_sve_prfh_gather_scalar_offset,     // llvm.aarch64.sve.prfh.gather.scalar.offset
+    aarch64_sve_prfh_gather_sxtw_index,        // llvm.aarch64.sve.prfh.gather.sxtw.index
+    aarch64_sve_prfh_gather_uxtw_index,        // llvm.aarch64.sve.prfh.gather.uxtw.index
+    aarch64_sve_prfw_gather_index,             // llvm.aarch64.sve.prfw.gather.index
+    aarch64_sve_prfw_gather_scalar_offset,     // llvm.aarch64.sve.prfw.gather.scalar.offset
+    aarch64_sve_prfw_gather_sxtw_index,        // llvm.aarch64.sve.prfw.gather.sxtw.index
+    aarch64_sve_prfw_gather_uxtw_index,        // llvm.aarch64.sve.prfw.gather.uxtw.index
     aarch64_sve_ptest_any,                     // llvm.aarch64.sve.ptest.any
     aarch64_sve_ptest_first,                   // llvm.aarch64.sve.ptest.first
     aarch64_sve_ptest_last,                    // llvm.aarch64.sve.ptest.last

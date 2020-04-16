@@ -677,6 +677,7 @@ public:
     getAttributeSpellingListIndex() == 4; }
   bool isDeclspec() const { return getAttributeSpellingListIndex() == 2; }
   bool isAlignmentDependent() const;
+  bool isAlignmentErrorDependent() const;
   unsigned getAlignment(ASTContext &Ctx) const;
   bool isAlignmentExpr() const {
     return isalignmentExpr;
@@ -9986,6 +9987,8 @@ class UuidAttr : public InheritableAttr {
 unsigned guidLength;
 char *guid;
 
+MSGuidDecl * guidDecl;
+
 public:
   enum Spelling {
     Declspec_uuid = 0,
@@ -9995,12 +9998,20 @@ public:
   };
 
   // Factory methods
+  static UuidAttr *CreateImplicit(ASTContext &Ctx, llvm::StringRef Guid, MSGuidDecl * GuidDecl, const AttributeCommonInfo &CommonInfo = {SourceRange{}});
+  static UuidAttr *Create(ASTContext &Ctx, llvm::StringRef Guid, MSGuidDecl * GuidDecl, const AttributeCommonInfo &CommonInfo = {SourceRange{}});
+  static UuidAttr *CreateImplicit(ASTContext &Ctx, llvm::StringRef Guid, MSGuidDecl * GuidDecl, SourceRange Range, AttributeCommonInfo::Syntax Syntax);
+  static UuidAttr *Create(ASTContext &Ctx, llvm::StringRef Guid, MSGuidDecl * GuidDecl, SourceRange Range, AttributeCommonInfo::Syntax Syntax);
   static UuidAttr *CreateImplicit(ASTContext &Ctx, llvm::StringRef Guid, const AttributeCommonInfo &CommonInfo = {SourceRange{}});
   static UuidAttr *Create(ASTContext &Ctx, llvm::StringRef Guid, const AttributeCommonInfo &CommonInfo = {SourceRange{}});
   static UuidAttr *CreateImplicit(ASTContext &Ctx, llvm::StringRef Guid, SourceRange Range, AttributeCommonInfo::Syntax Syntax);
   static UuidAttr *Create(ASTContext &Ctx, llvm::StringRef Guid, SourceRange Range, AttributeCommonInfo::Syntax Syntax);
 
   // Constructors
+  UuidAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , llvm::StringRef Guid
+              , MSGuidDecl * GuidDecl
+             );
   UuidAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
               , llvm::StringRef Guid
              );
@@ -10020,6 +10031,10 @@ public:
     this->guid = new (C, 1) char [guidLength];
     if (!S.empty())
       std::memcpy(this->guid, S.data(), guidLength);
+  }
+
+  MSGuidDecl * getGuidDecl() const {
+    return guidDecl;
   }
 
 

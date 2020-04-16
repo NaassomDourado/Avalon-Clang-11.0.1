@@ -2163,6 +2163,7 @@ Record.push_back(SA->getImplicitReason());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
     Record.AddString(SA->getGuid());
+    Record.AddDeclRef(SA->getGuidDecl());
     break;
   }
   case attr::VecReturn: {

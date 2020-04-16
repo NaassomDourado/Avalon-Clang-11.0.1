@@ -773,22 +773,22 @@ static constexpr IntrinsicTargetInfo TargetInfos[] = {
   "llvm.aarch64.sve.pmullt.pair",
   "llvm.aarch64.sve.pnext",
   "llvm.aarch64.sve.prf",
-  "llvm.aarch64.sve.prfb.gather",
-  "llvm.aarch64.sve.prfb.gather.scaled",
-  "llvm.aarch64.sve.prfb.gather.scaled.sxtw",
-  "llvm.aarch64.sve.prfb.gather.scaled.uxtw",
-  "llvm.aarch64.sve.prfd.gather",
-  "llvm.aarch64.sve.prfd.gather.scaled",
-  "llvm.aarch64.sve.prfd.gather.scaled.sxtw",
-  "llvm.aarch64.sve.prfd.gather.scaled.uxtw",
-  "llvm.aarch64.sve.prfh.gather",
-  "llvm.aarch64.sve.prfh.gather.scaled",
-  "llvm.aarch64.sve.prfh.gather.scaled.sxtw",
-  "llvm.aarch64.sve.prfh.gather.scaled.uxtw",
-  "llvm.aarch64.sve.prfw.gather",
-  "llvm.aarch64.sve.prfw.gather.scaled",
-  "llvm.aarch64.sve.prfw.gather.scaled.sxtw",
-  "llvm.aarch64.sve.prfw.gather.scaled.uxtw",
+  "llvm.aarch64.sve.prfb.gather.index",
+  "llvm.aarch64.sve.prfb.gather.scalar.offset",
+  "llvm.aarch64.sve.prfb.gather.sxtw.index",
+  "llvm.aarch64.sve.prfb.gather.uxtw.index",
+  "llvm.aarch64.sve.prfd.gather.index",
+  "llvm.aarch64.sve.prfd.gather.scalar.offset",
+  "llvm.aarch64.sve.prfd.gather.sxtw.index",
+  "llvm.aarch64.sve.prfd.gather.uxtw.index",
+  "llvm.aarch64.sve.prfh.gather.index",
+  "llvm.aarch64.sve.prfh.gather.scalar.offset",
+  "llvm.aarch64.sve.prfh.gather.sxtw.index",
+  "llvm.aarch64.sve.prfh.gather.uxtw.index",
+  "llvm.aarch64.sve.prfw.gather.index",
+  "llvm.aarch64.sve.prfw.gather.scalar.offset",
+  "llvm.aarch64.sve.prfw.gather.sxtw.index",
+  "llvm.aarch64.sve.prfw.gather.uxtw.index",
   "llvm.aarch64.sve.ptest.any",
   "llvm.aarch64.sve.ptest.first",
   "llvm.aarch64.sve.ptest.last",
@@ -9045,9 +9045,9 @@ static const unsigned IIT_Table[] = {
   (1U<<31) | 6961, (1U<<31) | 5838, (1U<<31) | 6971, (1U<<31) | 6917, (1U<<31) | 6971, (1U<<31) | 5050, (1U<<31) | 6971, (1U<<31) | 5050, 
   (1U<<31) | 6971, (1U<<31) | 6961, 0x47f7f3f, (1U<<31) | 6961, 0x7f7f7f3f, (1U<<31) | 6834, (1U<<31) | 6917, (1U<<31) | 6961, 
   (1U<<31) | 6834, (1U<<31) | 6961, (1U<<31) | 6961, (1U<<31) | 6961, (1U<<31) | 953, (1U<<31) | 6803, 0x7f7f3f, 0x7f7f3f, 
-  0x7f7f3f, (1U<<31) | 6803, 0x42e3f0, (1U<<31) | 4622, (1U<<31) | 1863, (1U<<31) | 1863, (1U<<31) | 1863, (1U<<31) | 4622, 
-  (1U<<31) | 1863, (1U<<31) | 1863, (1U<<31) | 1863, (1U<<31) | 4622, (1U<<31) | 1863, (1U<<31) | 1863, (1U<<31) | 1863, (1U<<31) | 4622, 
-  (1U<<31) | 1863, (1U<<31) | 1863, (1U<<31) | 1863, 0x7f3f1, 0x7f3f1, 0x7f3f1, 0x43f, (1U<<31) | 977, 
+  0x7f7f3f, (1U<<31) | 6803, 0x42e3f0, (1U<<31) | 1863, (1U<<31) | 4622, (1U<<31) | 1863, (1U<<31) | 1863, (1U<<31) | 1863, 
+  (1U<<31) | 4622, (1U<<31) | 1863, (1U<<31) | 1863, (1U<<31) | 1863, (1U<<31) | 4622, (1U<<31) | 1863, (1U<<31) | 1863, (1U<<31) | 1863, 
+  (1U<<31) | 4622, (1U<<31) | 1863, (1U<<31) | 1863, 0x7f3f1, 0x7f3f1, 0x7f3f1, 0x43f, (1U<<31) | 977, 
   (1U<<31) | 977, (1U<<31) | 6943, (1U<<31) | 6941, (1U<<31) | 5828, (1U<<31) | 6834, (1U<<31) | 205, (1U<<31) | 209, 0x7f3f, 
   (1U<<31) | 6834, (1U<<31) | 6834, (1U<<31) | 6834, (1U<<31) | 1875, (1U<<31) | 1873, (1U<<31) | 6943, (1U<<31) | 6941, 0x7f7f7f3f, 
   (1U<<31) | 7244, (1U<<31) | 7244, (1U<<31) | 6961, (1U<<31) | 7237, (1U<<31) | 7237, (1U<<31) | 7220, (1U<<31) | 7237, (1U<<31) | 7237, 
@@ -11408,22 +11408,22 @@ AttributeList Intrinsic::getAttributes(LLVMContext &C, ID id) {
     1, // llvm.aarch64.sve.pmullt.pair
     1, // llvm.aarch64.sve.pnext
     67, // llvm.aarch64.sve.prf
-    68, // llvm.aarch64.sve.prfb.gather
-    69, // llvm.aarch64.sve.prfb.gather.scaled
-    69, // llvm.aarch64.sve.prfb.gather.scaled.sxtw
-    69, // llvm.aarch64.sve.prfb.gather.scaled.uxtw
-    68, // llvm.aarch64.sve.prfd.gather
-    69, // llvm.aarch64.sve.prfd.gather.scaled
-    69, // llvm.aarch64.sve.prfd.gather.scaled.sxtw
-    69, // llvm.aarch64.sve.prfd.gather.scaled.uxtw
-    68, // llvm.aarch64.sve.prfh.gather
-    69, // llvm.aarch64.sve.prfh.gather.scaled
-    69, // llvm.aarch64.sve.prfh.gather.scaled.sxtw
-    69, // llvm.aarch64.sve.prfh.gather.scaled.uxtw
-    68, // llvm.aarch64.sve.prfw.gather
-    69, // llvm.aarch64.sve.prfw.gather.scaled
-    69, // llvm.aarch64.sve.prfw.gather.scaled.sxtw
-    69, // llvm.aarch64.sve.prfw.gather.scaled.uxtw
+    68, // llvm.aarch64.sve.prfb.gather.index
+    69, // llvm.aarch64.sve.prfb.gather.scalar.offset
+    68, // llvm.aarch64.sve.prfb.gather.sxtw.index
+    68, // llvm.aarch64.sve.prfb.gather.uxtw.index
+    68, // llvm.aarch64.sve.prfd.gather.index
+    69, // llvm.aarch64.sve.prfd.gather.scalar.offset
+    68, // llvm.aarch64.sve.prfd.gather.sxtw.index
+    68, // llvm.aarch64.sve.prfd.gather.uxtw.index
+    68, // llvm.aarch64.sve.prfh.gather.index
+    69, // llvm.aarch64.sve.prfh.gather.scalar.offset
+    68, // llvm.aarch64.sve.prfh.gather.sxtw.index
+    68, // llvm.aarch64.sve.prfh.gather.uxtw.index
+    68, // llvm.aarch64.sve.prfw.gather.index
+    69, // llvm.aarch64.sve.prfw.gather.scalar.offset
+    68, // llvm.aarch64.sve.prfw.gather.sxtw.index
+    68, // llvm.aarch64.sve.prfw.gather.uxtw.index
     1, // llvm.aarch64.sve.ptest.any
     1, // llvm.aarch64.sve.ptest.first
     1, // llvm.aarch64.sve.ptest.last
@@ -18826,7 +18826,7 @@ AttributeList Intrinsic::getAttributes(LLVMContext &C, ID id) {
       NumAttrs = 3;
       break;
       }
-    case 69: {
+    case 68: {
       const Attribute::AttrKind AttrParam2[]= {Attribute::NoCapture};
       AS[0] = AttributeList::get(C, 2, AttrParam2);
       const Attribute::AttrKind AttrParam4[]= {Attribute::ImmArg};
@@ -18836,7 +18836,7 @@ AttributeList Intrinsic::getAttributes(LLVMContext &C, ID id) {
       NumAttrs = 3;
       break;
       }
-    case 68: {
+    case 69: {
       const Attribute::AttrKind AttrParam4[]= {Attribute::ImmArg};
       AS[0] = AttributeList::get(C, 4, AttrParam4);
       const Attribute::AttrKind Atts[] = {Attribute::NoUnwind,Attribute::InaccessibleMemOrArgMemOnly};

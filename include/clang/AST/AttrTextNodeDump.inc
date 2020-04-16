@@ -804,6 +804,8 @@
   void VisitUuidAttr(const UuidAttr *A) {
     const auto *SA = cast<UuidAttr>(A); (void)SA;
     OS << " \"" << SA->getGuid() << "\"";
+    OS << " ";
+    dumpBareDeclRef(SA->getGuidDecl());
   }
   void VisitVecTypeHintAttr(const VecTypeHintAttr *A) {
     const auto *SA = cast<VecTypeHintAttr>(A); (void)SA;

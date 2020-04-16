@@ -3078,7 +3078,8 @@
     bool isImplicit = Record.readInt();
     bool isPackExpansion = Record.readInt();
     std::string guid= Record.readString();
-    New = new (Context) UuidAttr(Context, Info, guid);
+    MSGuidDecl * guidDecl = Record.GetLocalDeclAs<MSGuidDecl >(Record.readInt());
+    New = new (Context) UuidAttr(Context, Info, guid, guidDecl);
     cast<InheritableAttr>(New)->setInherited(isInherited);
     New->setImplicit(isImplicit);
     New->setPackExpansion(isPackExpansion);

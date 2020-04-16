@@ -1486,6 +1486,11 @@ bool AlignedAttr::isAlignmentDependent() const {
   else
     return alignmentType->getType()->isDependentType();
 }
+bool AlignedAttr::isAlignmentErrorDependent() const {
+  if (isalignmentExpr)
+    return alignmentExpr && alignmentExpr->containsErrors();
+  return alignmentType->getType()->containsErrors();
+}
 unsigned AlignedAttr::getAlignment(ASTContext &Ctx) const {
   assert(!isAlignmentDependent());
   if (isalignmentExpr)
@@ -23241,6 +23246,31 @@ const char *UsedAttr::getSpelling() const {
 
 // UuidAttr implementation
 
+UuidAttr *UuidAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Guid, MSGuidDecl * GuidDecl, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) UuidAttr(Ctx, CommonInfo, Guid, GuidDecl);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+UuidAttr *UuidAttr::Create(ASTContext &Ctx, llvm::StringRef Guid, MSGuidDecl * GuidDecl, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) UuidAttr(Ctx, CommonInfo, Guid, GuidDecl);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+UuidAttr *UuidAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Guid, MSGuidDecl * GuidDecl, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+  return CreateImplicit(Ctx, Guid, GuidDecl, I);
+}
+
+UuidAttr *UuidAttr::Create(ASTContext &Ctx, llvm::StringRef Guid, MSGuidDecl * GuidDecl, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+  return Create(Ctx, Guid, GuidDecl, I);
+}
+
 UuidAttr *UuidAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Guid, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) UuidAttr(Ctx, CommonInfo, Guid);
   A->setImplicit(true);
@@ -23268,9 +23298,22 @@ UuidAttr *UuidAttr::Create(ASTContext &Ctx, llvm::StringRef Guid, SourceRange Ra
 
 UuidAttr::UuidAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
               , llvm::StringRef Guid
+              , MSGuidDecl * GuidDecl
              )
   : InheritableAttr(Ctx, CommonInfo, attr::Uuid, false, false)
               , guidLength(Guid.size()),guid(new (Ctx, 1) char[guidLength])
+              , guidDecl(GuidDecl)
+  {
+    if (!Guid.empty())
+      std::memcpy(guid, Guid.data(), guidLength);
+}
+
+UuidAttr::UuidAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , llvm::StringRef Guid
+             )
+  : InheritableAttr(Ctx, CommonInfo, attr::Uuid, false, false)
+              , guidLength(Guid.size()),guid(new (Ctx, 1) char[guidLength])
+              , guidDecl()
   {
     if (!Guid.empty())
       std::memcpy(guid, Guid.data(), guidLength);
@@ -23278,8 +23321,10 @@ UuidAttr::UuidAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
 
 
 
+
+
 UuidAttr *UuidAttr::clone(ASTContext &C) const {
-  auto *A = new (C) UuidAttr(C, *this, getGuid());
+  auto *A = new (C) UuidAttr(C, *this, getGuid(), guidDecl);
   A->Inherited = Inherited;
   A->IsPackExpansion = IsPackExpansion;
   A->setImplicit(Implicit);
